@@ -1,0 +1,55 @@
+.card {
+    font-family: Calibri;
+    font-size: 150%;
+    text-align: center;
+    color: Black;
+    background-color: black;
+}
+
+#rubric {
+    text-align: left;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    background: #1d6695;
+    color: white;
+    font-weight: 500;
+}
+
+img {
+    padding: 15px;
+    max-width: 100%;
+    height: auto;
+    width: 300px;
+    border-radius: 30px;
+}
+
+#word {
+    font-size: 40px;
+    color: #3372f5;
+}
+
+#example {
+    padding-top: 7px;
+    text-align: left;
+}
+
+#ipa {
+    font-family: Arial;
+    padding-top: 7px;
+}
+
+#meaning {
+    color: #878787;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic
+}
+
+.search {
+	font-size: 13px;
+	padding-bottom: 5px;
+	margin: 10px;
+}

@@ -1,0 +1,34 @@
+<div id="word">{{Word}}</div>
+
+<div id='meaning'>{{MeaningOfWord}}</div>
+<div id="ipa">({{TypeWord}}) {{IPA}}</div>
+
+
+<img src="{{Image}}" alt="">
+
+<div id="example">{{Example}}</div>
+<div id='meaning'>{{MeaningOfExample}}</div>
+
+
+{{type:Word}}
+
+<audio controls id="back-audio">
+    <source src="{{AudioOfExample}}" type="audio/mp3">
+</audio>
+
+<script>
+    var audio = document.getElementById("back-audio");
+    audio.play();
+</script>
+
+<script>
+    var word = document.getElementById("word").innerHTML; //Declare variable
+    var example = document.getElementById("example");
+
+    String.prototype.replaceAt = function (index, replacement) { //Function replace
+        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+    }
+    strReplace = Array(word.length - 1).join('_'); //Create ______
+
+    example.innerHTML = example.innerHTML.replace(word, word.fontcolor('#3372f5')); //Replace word in sentence with __________
+</script>
