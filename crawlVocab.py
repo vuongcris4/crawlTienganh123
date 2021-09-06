@@ -177,6 +177,3 @@ for URL in URLs:
                 meaningOfExample, image, audioOfWord, audioOfExample, video])
 
 saveAnkiPackage(deckNameFinal)
-
-deckNameFinal=
-URLs
