@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import json
-from pprint import pprint
 import genanki
 import random
 import os
@@ -38,7 +37,7 @@ headers = {
 }
 
 deckNameFinal = "Tiếng Anh lớp 9 - Sách mới"
-URLs = ['https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-1-tu-vung-1/18851-tu-vung-ve-cac-san-pham-thu-cong-lang-nghe-truyen-thong.html']
+URLs = ["https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-1-tu-vung-1/18851-tu-vung-ve-cac-san-pham-thu-cong-lang-nghe-truyen-thong.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-1-tu-vung-2/18862-tu-vung-ve-cac-san-pham-thu-cong-lang-nghe-truyen-thong-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-2-tu-vung-1/18917-tu-vung-ve-cac-net-dac-trung-cua-cuoc-song-thanh-pho.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-2-tu-vung-2/18925-tu-vung-ve-doi-song-o-thanh-pho-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-3-tu-vung-1/18935-tu-vung-ve-nhung-cang-thang-va-ap-luc-trong-giai-doan-vi-thanh-nien.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-3-tu-vung-2/18938-tu-vung-ve-nhung-cang-thang-va-ap-luc-trong-giai-doan-vi-thanh-nien-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-4-tu-vung-1/19062-tu-vung-ve-cuoc-song-thoi-xua.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-4-tu-vung-2/19066-tu-vung-ve-cuoc-song-thoi-xua-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-5-tu-vung-1/19175-tu-vung-ve-cac-ky-quan-o-viet-nam.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-5-tu-vung-2/19179-tu-vung-ve-cac-ky-quan-o-viet-nam-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-6-tu-vung-1/19226-tu-vung-ve-viet-nam-thoi-xua-va-nay.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-6-tu-vung-2/19251-tu-vung-ve-viet-nam-thoi-xua-va-nay-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-7-tu-vung-1/19313-tu-vung-ve-cac-mon-an-va-cac-cach-che-bien-thuc-an.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-7-tu-vung-2/19319-tu-vung-ve-cac-mon-an-va-cac-cach-che-bien-thuc-an-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-8-tu-vung-1/19372-tu-vung-ve-du-lich.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-8-tu-vung-2/19400-tu-vung-ve-du-lich-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-9-tu-vung-1/19419-tu-vung-ve-ngon-ngu-cach-hoc-va-su-dung-ngon-ngu.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-9-tu-vung-2/19451-tu-vung-ve-ngon-ngu-cach-hoc-va-su-dung-ngon-ngu-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-10-tu-vung-1/19502-tu-vung-ve-thien-van-hoc-va-du-hanh-vu-tru.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-10-tu-vung-2/19506-tu-vung-ve-thien-van-hoc-va-du-hanh-vu-tru-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-11-tu-vung-1/19543-tu-vung-ve-nhung-thay-doi-vai-tro-trong-xa-hoi.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-11-tu-vung-2/19612-tu-vung-ve-nhung-thay-doi-vai-tro-trong-xa-hoi-tiep.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-12-tu-vung-1/19619-tu-vung-ve-lua-chon-nghe-nghiep-cho-tuong-lai.html","https://www.tienganh123.com/tieng-anh-lop-9-sach-moi-bai-12-tu-vung-2/19624-tu-vung-ve-lua-chon-nghe-nghiep-cho-tuong-lai-tiep.html"]
 
 # _____________________ Tạo Model Field Cho deck Anki ___________
 
@@ -153,6 +152,6 @@ for URL in URLs:
 
         addNote([Word, ipa, typeWord, meaningOfWord, example,
                 meaningOfExample, image, audioOfWord, audioOfExample, video])
-        break
 
 saveAnkiPackage(deckNameFinal)
+
